@@ -9,6 +9,6 @@ var EnemyHPmax = 10
 
 <button onclick="attack()">attack</button>
 
-</html>
-</body>
 </script>
+</body>
+</html>
