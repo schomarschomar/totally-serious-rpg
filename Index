@@ -1,1 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
 
+var HP = 50
+var EnemyHPmax = 10
+
+
+<button onclick="attack()">attack</button>
+
+</html>
+</body>
+</script>
