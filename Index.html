@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html>
 <body onload="gamestart()">
-  <p id="events"></p>
-  <p id="HP"></p>
+  <p id="events">hi</p>
+  <p id="HP">fi</p>
   <button onclick="attack()">attack</button>
 <script>
 
 
 function gamestart() {
-var HP = 50;
-var EnemyHPmax = 10;
+  var HP = 50;
+  var EnemyHPmax = 10;
   var EnemyHP = 10;
-  document.getElementById("HP").innerHTML="'HP ' + HP";
+  var EnemiesKilled = 0;
+  document.getElementById("HP").innerHTML='HP ' + HP;
 }
-  function attack() {
-    var PATK = Math.floor((math.random() * 5) + 1);
-    var EATK = Math.floor((math.random() * 5) + 1);
+
+
+function attack() {
+document.getElementById("events").innerHTML='You';
+  //  var PATK = Math.floor((math.random() * 5) + 1);
+ //   var EATK = Math.floor((math.random() * 5) + 1);
     var EnemyHP = EnemyHP - PATK;
-    var HP = HP - EATK
-  }
-</script>
-</body>
-</html>
+    document.getElementById("events").innerHTML='You dealt ' + PATK + ' damage and killed the enemy.';
+    if (EnemyHP < 1) {
+    
+    var EnemiesKilled = EnemiesKilled + 1;
+    var EnemyHPmax = EnemyHPmax + 5;
+    var EnemyHP = EnemyHPmax;
+    var HP = HP + Math.floor((math.random() * 10) + 1);
+   }
+   else {
+    var HP = HP - EATK;
+    if (HP > 0) {    document.getElementById("events").innerHTML='You dealt ' + PATK + ' damage. The enemy dealt ' + EATK + ' damage';
+    }
+    if (HP < 1) { 
+   document.getElementById("events").innerHTML="You died!";
