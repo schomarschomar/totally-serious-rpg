@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <body onload="gamestart()">
-  <p id="events">hi</p>
-  <p id="HP">fi</p>
-  <button onclick="attack()">attack</button>
-<script>
 
+  <p id="events">Events</p>
+  <p id="HP">HP:</p>
+  <button onclick="attack()">attack</button>
+  
+<script>
 
 function gamestart() {
   var HP = 50;
@@ -15,23 +16,32 @@ function gamestart() {
   document.getElementById("HP").innerHTML='HP ' + HP;
 }
 
-
 function attack() {
-document.getElementById("events").innerHTML='You';
-  //  var PATK = Math.floor((math.random() * 5) + 1);
- //   var EATK = Math.floor((math.random() * 5) + 1);
+    var PATK = Math.floor((Math.random() * 5) + 1);
+    var EATK = Math.floor((Math.random() * 5) + 1);
     var EnemyHP = EnemyHP - PATK;
     document.getElementById("events").innerHTML='You dealt ' + PATK + ' damage and killed the enemy.';
-    if (EnemyHP < 1) {
     
-    var EnemiesKilled = EnemiesKilled + 1;
-    var EnemyHPmax = EnemyHPmax + 5;
-    var EnemyHP = EnemyHPmax;
-    var HP = HP + Math.floor((math.random() * 10) + 1);
-   }
-   else {
-    var HP = HP - EATK;
-    if (HP > 0) {    document.getElementById("events").innerHTML='You dealt ' + PATK + ' damage. The enemy dealt ' + EATK + ' damage';
+    if (EnemyHP < 1) {
+    	var EnemiesKilled = EnemiesKilled + 1;
+   		var EnemyHPmax = EnemyHPmax + 5;
+    	var EnemyHP = EnemyHPmax;
+    	var HP = HP + Math.floor((Math.random() * 10) + 1);
+   	}
+    
+    if (EnemyHP > 0) {
+    	var HP = HP - EATK;
+        
+    	if (HP > 0) {
+        	document.getElementById("events").innerHTML='You dealt ' + PATK + ' damage. The enemy dealt ' + EATK + ' damage';
+        }
+        
+     if (HP < 1) { 
+   		document.getElementById("events").innerHTML="You died!";
+	 }
     }
-    if (HP < 1) { 
-   document.getElementById("events").innerHTML="You died!";
+    
+} 
+</script>
+</body>
+</html>
