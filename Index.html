@@ -11,9 +11,13 @@ function gamestart() {
 var HP = 50;
 var EnemyHPmax = 10;
   var EnemyHP = 10;
+  document.getElementeById("HP").="'HP ' + HP"
 }
   function attack() {
-    
+    var PATK = Math.floor((math.random() * 5) + 1);
+    var EATK = Math.floor((math.random() * 5) + 1);
+    var EnemyHP = EnemyHP - PATK;
+    var HP = HP - EATK
   }
 </script>
 </body>
